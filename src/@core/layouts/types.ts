@@ -36,6 +36,7 @@ export type NavSectionTitle = {
   action?: string
   subject?: string
   sectionTitle: string
+  icon?: string
 }
 
 export type NavGroup = {

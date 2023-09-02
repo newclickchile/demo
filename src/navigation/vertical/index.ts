@@ -5,20 +5,22 @@ const navigation = (): VerticalNavItemsType => {
   return [
     {
       title: 'Home',
-      path: '/home',
-      icon: 'mdi:home-outline',
+      path: '/dashboards/crm',
+      icon: 'mdi:home-outline'
     },
     {
-      title: 'Second Page',
-      path: '/second-page',
-      icon: 'mdi:email-outline',
+      sectionTitle: 'Facturas',
+      icon: 'mdi:invoice'
     },
     {
-      path: '/acl',
-      action: 'read',
-      subject: 'acl-page',
-      title: 'Access Control',
-      icon: 'mdi:shield-outline',
+      title: 'Por Pagar',
+      path: '/invoice/list',
+      icon: 'mdi:invoice-arrow-right-outline'
+    },
+    {
+      path: '/invoice/list/',
+      title: 'Por cobrar',
+      icon: 'mdi:invoice-arrow-left-outline'
     }
   ]
 }

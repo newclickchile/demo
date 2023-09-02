@@ -43,11 +43,11 @@ const Accordion = () => {
             borderBottomLeftRadius: 0,
             borderBottomRightRadius: 0
           }),
-          '& + .MuiCollapse-root': {
-            '& .MuiAccordionDetails-root:first-child': {
-              paddingTop: 0
-            }
-          }
+          // '& + .MuiCollapse-root': {
+          //   '& .MuiAccordionDetails-root:first-child': {
+          //     paddingTop: 0
+          //   }
+          // }
         }),
         content: ({ theme }: OwnerStateThemeType) => ({
           margin: `${theme.spacing(2.5)} 0`

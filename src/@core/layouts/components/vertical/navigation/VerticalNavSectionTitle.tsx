@@ -11,6 +11,9 @@ import { Settings } from 'src/@core/context/settingsContext'
 // ** Custom Components Imports
 import Translations from 'src/layouts/components/Translations'
 import CanViewNavSectionTitle from 'src/layouts/components/acl/CanViewNavSectionTitle'
+import UserIcon from 'src/layouts/components/UserIcon'
+import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
 
 interface Props {
   navHover: boolean
@@ -81,7 +84,12 @@ const VerticalNavSectionTitle = (props: Props) => {
         >
           {navCollapsed && !navHover ? null : (
             <TypographyHeaderText noWrap sx={{ color: 'text.disabled' }}>
-              <Translations text={item.sectionTitle} />
+              <Box sx={{ display: 'flex', alignItems: 'center' }} component={'span'}>
+                <UserIcon fontSize={16} icon={item.icon as string} />
+                <Box component={'span'} ml={1}>
+                  <Translations text={item.sectionTitle} />
+                </Box>
+              </Box>
             </TypographyHeaderText>
           )}
         </Divider>
