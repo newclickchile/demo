@@ -1,15 +1,11 @@
 // ** Next Import
 import InputAdornment from '@mui/material/InputAdornment'
-import Link from 'next/link'
 import Icon from 'src/@core/components/icon'
 
 // ** MUI Imports
 import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import Select from '@mui/material/Select'
-import { GridRowId } from '@mui/x-data-grid'
-import MenuItem from '@mui/material/MenuItem'
 import TextField from '@mui/material/TextField'
+import { GridRowId } from '@mui/x-data-grid'
 
 interface TableHeaderProps {
   value: string
@@ -20,6 +16,7 @@ interface TableHeaderProps {
 const TableHeader = (props: TableHeaderProps) => {
   // ** Props
   const { value, selectedRows, handleFilter } = props
+  console.log('selectedRows :', selectedRows)
 
   return (
     <Box

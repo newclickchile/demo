@@ -1,13 +1,12 @@
 // ** React Imports
-import { ReactNode } from 'react'
 
 // ** MUI Components
-import useMediaQuery from '@mui/material/useMediaQuery'
 import { styled, useTheme } from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
-interface FooterIllustrationsV2Prop {
-  image?: ReactNode
-}
+// interface FooterIllustrationsV2Prop {
+//   image?: ReactNode
+// }
 
 // Styled Components
 const MaskImg = styled('img')(() => ({
@@ -17,19 +16,19 @@ const MaskImg = styled('img')(() => ({
   position: 'absolute'
 }))
 
-const TreeImg = styled('img')(({ theme }) => ({
-  left: '2.125rem',
-  bottom: '2.688rem',
-  position: 'absolute',
-  [theme.breakpoints.down('lg')]: {
-    left: 0,
-    bottom: 0
-  }
-}))
+// const TreeImg = styled('img')(({ theme }) => ({
+//   left: '2.125rem',
+//   bottom: '2.688rem',
+//   position: 'absolute',
+//   [theme.breakpoints.down('lg')]: {
+//     left: 0,
+//     bottom: 0
+//   }
+// }))
 
-const FooterIllustrationsV2 = (props: FooterIllustrationsV2Prop) => {
+const FooterIllustrationsV2 = () => {
   // ** Props
-  const { image } = props
+  // const { image } = props
 
   // ** Hook
   const theme = useTheme()

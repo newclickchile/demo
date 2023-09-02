@@ -51,14 +51,14 @@ const RegisterIllustration = styled('img')(({ theme }) => ({
   }
 }))
 
-const TreeIllustration = styled('img')(({ theme }) => ({
-  bottom: 0,
-  left: '1.875rem',
-  position: 'absolute',
-  [theme.breakpoints.down('lg')]: {
-    left: 0
-  }
-}))
+// const TreeIllustration = styled('img')(({ theme }) => ({
+//   bottom: 0,
+//   left: '1.875rem',
+//   position: 'absolute',
+//   [theme.breakpoints.down('lg')]: {
+//     left: 0
+//   }
+// }))
 
 const RightWrapper = styled(Box)<BoxProps>(({ theme }) => ({
   width: '100%',
@@ -111,7 +111,7 @@ const Register = () => {
               src={`/images/pages/${imageSource}-${theme.palette.mode}.png`}
             />
           </RegisterIllustrationWrapper>
-          <FooterIllustrationsV2 image={<TreeIllustration alt='tree' src='/images/pages/tree-2.png' />} />
+          <FooterIllustrationsV2 />
         </Box>
       ) : null}
       <RightWrapper sx={skin === 'bordered' && !hidden ? { borderLeft: `1px solid ${theme.palette.divider}` } : {}}>
