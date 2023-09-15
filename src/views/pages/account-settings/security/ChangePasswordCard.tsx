@@ -1,5 +1,5 @@
 // ** React Imports
-import { MouseEvent, useState } from 'react'
+import { useState } from 'react'
 
 // ** MUI Imports
 import Box from '@mui/material/Box'
@@ -72,22 +72,13 @@ const ChangePasswordCard = () => {
   const handleClickShowCurrentPassword = () => {
     setValues({ ...values, showCurrentPassword: !values.showCurrentPassword })
   }
-  const handleMouseDownCurrentPassword = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault()
-  }
 
   const handleClickShowNewPassword = () => {
     setValues({ ...values, showNewPassword: !values.showNewPassword })
   }
-  const handleMouseDownNewPassword = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault()
-  }
 
   const handleClickShowConfirmNewPassword = () => {
     setValues({ ...values, showConfirmNewPassword: !values.showConfirmNewPassword })
-  }
-  const handleMouseDownConfirmNewPassword = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault()
   }
 
   const onPasswordFormSubmit = () => {
@@ -122,8 +113,8 @@ const ChangePasswordCard = () => {
                         <InputAdornment position='end'>
                           <IconButton
                             edge='end'
+                            onMouseDown={e => e.preventDefault()}
                             onClick={handleClickShowCurrentPassword}
-                            onMouseDown={handleMouseDownCurrentPassword}
                           >
                             <Icon icon={values.showCurrentPassword ? 'mdi:eye-outline' : 'mdi:eye-off-outline'} />
                           </IconButton>
@@ -161,7 +152,7 @@ const ChangePasswordCard = () => {
                           <IconButton
                             edge='end'
                             onClick={handleClickShowNewPassword}
-                            onMouseDown={handleMouseDownNewPassword}
+                            onMouseDown={e => e.preventDefault()}
                           >
                             <Icon icon={values.showNewPassword ? 'mdi:eye-outline' : 'mdi:eye-off-outline'} />
                           </IconButton>
@@ -196,8 +187,8 @@ const ChangePasswordCard = () => {
                         <InputAdornment position='end'>
                           <IconButton
                             edge='end'
+                            onMouseDown={e => e.preventDefault()}
                             onClick={handleClickShowConfirmNewPassword}
-                            onMouseDown={handleMouseDownConfirmNewPassword}
                           >
                             <Icon icon={values.showConfirmNewPassword ? 'mdi:eye-outline' : 'mdi:eye-off-outline'} />
                           </IconButton>

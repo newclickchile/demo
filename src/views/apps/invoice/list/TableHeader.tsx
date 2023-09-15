@@ -1,11 +1,13 @@
 // ** Next Import
-import InputAdornment from '@mui/material/InputAdornment'
-import Icon from 'src/@core/components/icon'
+import Link from 'next/link'
 
 // ** MUI Imports
 import Box from '@mui/material/Box'
-import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
+import Select from '@mui/material/Select'
 import { GridRowId } from '@mui/x-data-grid'
+import MenuItem from '@mui/material/MenuItem'
+import TextField from '@mui/material/TextField'
 
 interface TableHeaderProps {
   value: string
@@ -16,52 +18,43 @@ interface TableHeaderProps {
 const TableHeader = (props: TableHeaderProps) => {
   // ** Props
   const { value, selectedRows, handleFilter } = props
-  console.log('selectedRows :', selectedRows)
 
   return (
     <Box
       sx={{
-        // p: 5,
+        p: 5,
         pb: 3,
         width: '100%',
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
-        justifyContent: 'flex-end'
+        justifyContent: 'space-between'
       }}
     >
+      <Select
+        size='small'
+        displayEmpty
+        defaultValue=''
+        sx={{ mr: 4, mb: 2 }}
+        disabled={selectedRows && selectedRows.length === 0}
+        renderValue={selected => (selected.length === 0 ? 'Actions' : selected)}
+      >
+        <MenuItem disabled>Actions</MenuItem>
+        <MenuItem value='Delete'>Delete</MenuItem>
+        <MenuItem value='Edit'>Edit</MenuItem>
+        <MenuItem value='Send'>Send</MenuItem>
+      </Select>
       <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
         <TextField
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position='start'>
-                <Icon icon='mdi:magnify' />
-              </InputAdornment>
-            )
-          }}
           size='small'
           value={value}
           sx={{ mr: 4, mb: 2 }}
-          placeholder='Buscar por cliente, folio o RUT'
+          placeholder='Search Invoice'
           onChange={e => handleFilter(e.target.value)}
         />
-        {/* <Button sx={{ mb: 2 }} component={Link} variant='contained' href='/apps/invoice/add'>
+        <Button sx={{ mb: 2 }} component={Link} variant='contained' href='/apps/invoice/add'>
           Create Invoice
         </Button>
-
-        <Select
-          size='small'
-          displayEmpty
-          defaultValue=''
-          sx={{ mr: 4, mb: 2 }}
-          disabled={selectedRows && selectedRows.length === 0}
-          renderValue={selected => (selected.length === 0 ? 'Actions' : selected)}
-        >
-          <MenuItem disabled>Actions</MenuItem>
-          <MenuItem value='Delete'>Delete</MenuItem>
-          <MenuItem value='Edit'>Edit</MenuItem>
-          <MenuItem value='Send'>Send</MenuItem>
-        </Select> */}
       </Box>
     </Box>
   )

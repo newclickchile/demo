@@ -22,10 +22,7 @@ const Card = styled(MuiCard)<CardProps>(({ theme }) => ({
   border: 0,
   boxShadow: 'none',
   backgroundSize: 'cover',
-  backgroundImage:
-    theme.palette.mode === 'light'
-      ? 'url(/images/pages/tree-cone-cube-bg-light.png)'
-      : 'url(/images/pages/tree-cone-cube-bg-dark.png)'
+  backgroundImage: `url(/images/pages/tree-cone-cube-bg-${theme.palette.mode}.png)`
 }))
 
 // Styled TextField component

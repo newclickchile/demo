@@ -245,7 +245,7 @@ const InvoiceList = () => {
   const [value, setValue] = useState<string>('')
   const [statusValue, setStatusValue] = useState<string>('')
   const [endDateRange, setEndDateRange] = useState<DateType>(null)
-  const [selectedRows, setSelectedRows] = useState<GridRowId[]>([])
+  const [, setSelectedRows] = useState<GridRowId[]>([])
   const [startDateRange, setStartDateRange] = useState<DateType>(null)
   const [paginationModel, setPaginationModel] = useState({
     page: 0,
@@ -258,7 +258,6 @@ const InvoiceList = () => {
   const store = useSelector((state: RootState) => state.invoice)
 
   useEffect(() => {
-    console.log('selectedRows :', selectedRows)
     dispatch(
       fetchData({
         dates,

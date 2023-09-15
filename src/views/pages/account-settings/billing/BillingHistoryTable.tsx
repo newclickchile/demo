@@ -9,7 +9,6 @@ import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
-import { DataGrid } from '@mui/x-data-grid'
 import Tooltip from '@mui/material/Tooltip'
 import { styled } from '@mui/material/styles'
 import MenuItem from '@mui/material/MenuItem'
@@ -20,6 +19,7 @@ import Typography from '@mui/material/Typography'
 import CardHeader from '@mui/material/CardHeader'
 import CardContent from '@mui/material/CardContent'
 import FormControl from '@mui/material/FormControl'
+import { DataGrid, GridColDef } from '@mui/x-data-grid'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
 
 // ** Icon Imports
@@ -65,7 +65,7 @@ interface CellType {
 }
 
 // ** Styled component for the link in the dataTable
-const StyledLink = styled(Link)(({ theme }) => ({
+const LinkStyled = styled(Link)(({ theme }) => ({
   textDecoration: 'none',
   color: theme.palette.primary.main
 }))
@@ -97,13 +97,13 @@ const renderClient = (row: InvoiceType) => {
   }
 }
 
-const defaultColumns = [
+const defaultColumns: GridColDef[] = [
   {
     flex: 0.1,
     field: 'id',
     minWidth: 80,
     headerName: '#',
-    renderCell: ({ row }: CellType) => <StyledLink href={`/invoice/preview/${row.id}`}>{`#${row.id}`}</StyledLink>
+    renderCell: ({ row }: CellType) => <LinkStyled href={`/invoice/preview/${row.id}`}>{`#${row.id}`}</LinkStyled>
   },
   {
     flex: 0.1,
@@ -213,8 +213,8 @@ const CustomInput = forwardRef((props: CustomInputProps, ref) => {
 const BillingHistoryTable = () => {
   // ** State
   const [value, setValue] = useState<string>('')
-  const [pageSize, setPageSize] = useState<number>(10)
   const [statusValue, setStatusValue] = useState<string>('')
+  const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 10 })
 
   // ** Hooks
   const dispatch = useDispatch<AppDispatch>()
@@ -237,7 +237,7 @@ const BillingHistoryTable = () => {
     setStatusValue(e.target.value)
   }
 
-  const columns = [
+  const columns: GridColDef[] = [
     ...defaultColumns,
     {
       flex: 0.1,
@@ -326,8 +326,9 @@ const BillingHistoryTable = () => {
                 <MenuItem value='downloaded'>Downloaded</MenuItem>
                 <MenuItem value='draft'>Draft</MenuItem>
                 <MenuItem value='paid'>Paid</MenuItem>
-                <MenuItem value='past due'>Past Due</MenuItem>
                 <MenuItem value='partial payment'>Partial Payment</MenuItem>
+                <MenuItem value='past due'>Past Due</MenuItem>
+                <MenuItem value='sent'>Sent</MenuItem>
               </Select>
             </FormControl>
           </Box>
@@ -338,10 +339,10 @@ const BillingHistoryTable = () => {
         pagination
         rows={store.data}
         columns={columns}
-        disableSelectionOnClick
-        pageSize={Number(pageSize)}
-        rowsPerPageOptions={[10, 25, 50]}
-        onPageSizeChange={newPageSize => setPageSize(newPageSize)}
+        disableRowSelectionOnClick
+        pageSizeOptions={[10, 25, 50]}
+        paginationModel={paginationModel}
+        onPaginationModelChange={setPaginationModel}
       />
     </Card>
   )

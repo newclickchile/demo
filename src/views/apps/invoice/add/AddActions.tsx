@@ -32,7 +32,7 @@ const AddActions = () => {
             <Button fullWidth sx={{ mb: 3.5 }} variant='contained' startIcon={<Icon icon='mdi:send-outline' />}>
               Send Invoice
             </Button>
-            <Button fullWidth component={Link} sx={{ mb: 3.5 }} variant='outlined' href='/invoice/preview/4987'>
+            <Button fullWidth component={Link} sx={{ mb: 3.5 }} variant='outlined' href='/apps/invoice/preview/4987'>
               Preview
             </Button>
             <Button fullWidth variant='outlined' sx={{ mb: 3.5 }}>

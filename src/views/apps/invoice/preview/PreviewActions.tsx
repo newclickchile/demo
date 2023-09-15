@@ -31,7 +31,7 @@ const PreviewActions = ({ id, toggleSendInvoiceDrawer, toggleAddPaymentDrawer }:
         <Button fullWidth sx={{ mb: 3.5 }} color='secondary' variant='outlined'>
           Download
         </Button>
-        <Button
+        {/* <Button
           fullWidth
           target='_blank'
           sx={{ mb: 3.5 }}
@@ -41,7 +41,7 @@ const PreviewActions = ({ id, toggleSendInvoiceDrawer, toggleAddPaymentDrawer }:
           href={`/invoice/print/${id}`}
         >
           Print
-        </Button>
+        </Button> */}
         <Button
           fullWidth
           sx={{ mb: 3.5 }}

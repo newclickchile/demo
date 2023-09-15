@@ -82,11 +82,11 @@ const Faqs = ({ data, activeTab, handleChange }: Props) => {
               </Box>
             </Box>
             <Box sx={{ mt: 5 }}>
-              {tab.qandA.map((item, index) => {
+              {tab.qandA.map(item => {
                 return (
                   <Accordion key={item.id}>
                     <AccordionSummary expandIcon={<Icon icon='mdi:chevron-down' />}>
-                      <Typography sx={{ fontWeight: '500' }}>{`Q${index + 1}: ${item.question}`}</Typography>
+                      <Typography sx={{ fontWeight: '500' }}>{item.question}</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                       <Typography sx={{ color: 'text.secondary' }}>{item.answer}</Typography>

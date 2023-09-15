@@ -839,7 +839,6 @@ const data: { invoices: InvoiceType[] } = {
 mock.onGet('/apps/invoice/invoices').reply(config => {
   const { q = '', status = '', dates = [] } = config.params ?? ''
   const queryLowered = q.toLowerCase()
-  console.log('queryLowered :', queryLowered);
   const filteredData = data.invoices.filter(invoice => {
     if (dates.length) {
       const [start, end] = dates

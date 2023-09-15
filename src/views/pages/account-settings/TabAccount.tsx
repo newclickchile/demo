@@ -374,16 +374,35 @@ const TabAccount = () => {
 
       {/* Deactivate Account Dialogs */}
       <Dialog fullWidth maxWidth='xs' open={open} onClose={handleClose}>
-        <DialogContent>
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Box sx={{ maxWidth: '85%', textAlign: 'center', '& svg': { mb: 4, color: 'warning.main' } }}>
-              <Icon icon='mdi:alert-circle-outline' fontSize='5.5rem' />
-              <Typography>Are you sure you would like to deactivate your account?</Typography>
-            </Box>
+        <DialogContent
+          sx={{
+            pb: theme => `${theme.spacing(6)} !important`,
+            px: theme => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+            pt: theme => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`]
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              textAlign: 'center',
+              alignItems: 'center',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              '& svg': { mb: 6, color: 'warning.main' }
+            }}
+          >
+            <Icon icon='mdi:alert-circle-outline' fontSize='5.5rem' />
+            <Typography>Are you sure you would like to cancel your subscription?</Typography>
           </Box>
         </DialogContent>
-        <DialogActions sx={{ justifyContent: 'center' }}>
-          <Button variant='contained' onClick={() => handleConfirmation('yes')}>
+        <DialogActions
+          sx={{
+            justifyContent: 'center',
+            px: theme => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+            pb: theme => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`]
+          }}
+        >
+          <Button variant='contained' sx={{ mr: 2 }} onClick={() => handleConfirmation('yes')}>
             Yes
           </Button>
           <Button variant='outlined' color='secondary' onClick={() => handleConfirmation('cancel')}>
@@ -392,14 +411,20 @@ const TabAccount = () => {
         </DialogActions>
       </Dialog>
       <Dialog fullWidth maxWidth='xs' open={secondDialogOpen} onClose={handleSecondDialogClose}>
-        <DialogContent>
+        <DialogContent
+          sx={{
+            pb: theme => `${theme.spacing(6)} !important`,
+            px: theme => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+            pt: theme => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`]
+          }}
+        >
           <Box
             sx={{
               display: 'flex',
               alignItems: 'center',
               flexDirection: 'column',
               '& svg': {
-                mb: 14,
+                mb: 8,
                 color: userInput === 'yes' ? 'success.main' : 'error.main'
               }
             }}
@@ -408,15 +433,21 @@ const TabAccount = () => {
               fontSize='5.5rem'
               icon={userInput === 'yes' ? 'mdi:check-circle-outline' : 'mdi:close-circle-outline'}
             />
-            <Typography variant='h4' sx={{ mb: 8 }}>
+            <Typography variant='h4' sx={{ mb: 5 }}>
               {userInput === 'yes' ? 'Deleted!' : 'Cancelled'}
             </Typography>
             <Typography>
-              {userInput === 'yes' ? 'Your account has been deleted.' : 'Account Deactivation Cancelled!'}
+              {userInput === 'yes' ? 'Your subscription cancelled successfully.' : 'Unsubscription Cancelled!!'}
             </Typography>
           </Box>
         </DialogContent>
-        <DialogActions sx={{ justifyContent: 'center' }}>
+        <DialogActions
+          sx={{
+            justifyContent: 'center',
+            px: theme => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+            pb: theme => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`]
+          }}
+        >
           <Button variant='contained' color='success' onClick={handleSecondDialogClose}>
             OK
           </Button>

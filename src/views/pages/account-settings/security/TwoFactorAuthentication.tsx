@@ -1,5 +1,5 @@
 // ** React Imports
-import { SyntheticEvent, useState } from 'react'
+import { useState } from 'react'
 
 // ** MUI Imports
 import Box from '@mui/material/Box'
@@ -61,7 +61,7 @@ const TwoFactorAuthenticationCard = () => {
             <Box
               href='/'
               component={'a'}
-              onClick={(e: SyntheticEvent) => e.preventDefault()}
+              onClick={e => e.preventDefault()}
               sx={{ textDecoration: 'none', color: 'primary.main' }}
             >
               Learn more.
@@ -74,7 +74,12 @@ const TwoFactorAuthenticationCard = () => {
       </Card>
 
       <Dialog fullWidth open={open} onClose={toggle2FADialog}>
-        <DialogContent sx={{ py: 18, px: 18 }}>
+        <DialogContent
+          sx={{
+            px: theme => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+            py: theme => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`]
+          }}
+        >
           <Box sx={{ mb: 12, display: 'flex', justifyContent: 'center' }}>
             <Typography variant='h5' sx={{ fontSize: '1.625rem' }}>
               Enable One Time Password

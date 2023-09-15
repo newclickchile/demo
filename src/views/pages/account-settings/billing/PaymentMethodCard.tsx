@@ -326,13 +326,26 @@ const PaymentMethodCard = () => {
         open={openEditCard}
         onClose={handleEditCardClose}
         aria-labelledby='user-view-billing-edit-card'
-        sx={{ '& .MuiPaper-root': { width: '100%', maxWidth: 650, p: [2, 10] } }}
         aria-describedby='user-view-billing-edit-card-description'
+        sx={{ '& .MuiPaper-root': { width: '100%', maxWidth: 650 } }}
       >
-        <DialogTitle id='user-view-billing-edit-card' sx={{ textAlign: 'center', fontSize: '1.5rem !important' }}>
+        <DialogTitle
+          id='user-view-billing-edit-card'
+          sx={{
+            textAlign: 'center',
+            fontSize: '1.5rem !important',
+            px: theme => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+            pt: theme => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`]
+          }}
+        >
           Edit Card
         </DialogTitle>
-        <DialogContent>
+        <DialogContent
+          sx={{
+            pb: theme => `${theme.spacing(6)} !important`,
+            px: theme => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`]
+          }}
+        >
           <DialogContentText
             variant='body2'
             id='user-view-billing-edit-card-description'
@@ -438,8 +451,14 @@ const PaymentMethodCard = () => {
             </form>
           )}
         </DialogContent>
-        <DialogActions sx={{ justifyContent: 'center' }}>
-          <Button variant='contained' sx={{ mr: 1 }} onClick={handleEditCardClose}>
+        <DialogActions
+          sx={{
+            justifyContent: 'center',
+            px: theme => [`${theme.spacing(5)} !important`, `${theme.spacing(15)} !important`],
+            pb: theme => [`${theme.spacing(8)} !important`, `${theme.spacing(12.5)} !important`]
+          }}
+        >
+          <Button variant='contained' sx={{ mr: 2 }} onClick={handleEditCardClose}>
             Submit
           </Button>
           <Button variant='outlined' color='secondary' onClick={handleEditCardClose}>

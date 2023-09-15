@@ -1,7 +1,4 @@
-// ** React Imports
-import { SyntheticEvent } from 'react'
-
-// ** Next Imports
+// ** Next Import
 import Link from 'next/link'
 
 // ** MUI Imports
@@ -58,7 +55,7 @@ const FaqFooter = () => {
               href='/'
               variant='h5'
               component={Link}
-              onClick={(e: SyntheticEvent) => e.preventDefault()}
+              onClick={e => e.preventDefault()}
               sx={{ my: 4, textDecoration: 'none', '&:hover': { color: 'primary.main' } }}
             >
               + (810) 2548 2568
@@ -76,7 +73,7 @@ const FaqFooter = () => {
               href='/'
               variant='h5'
               component={Link}
-              onClick={(e: SyntheticEvent) => e.preventDefault()}
+              onClick={e => e.preventDefault()}
               sx={{ my: 4, textDecoration: 'none', '&:hover': { color: 'primary.main' } }}
             >
               hello@help.com

@@ -1,3 +1,6 @@
+// ** Next Import
+import Link from 'next/link'
+
 // ** MUI Imports
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
@@ -153,10 +156,21 @@ const TabConnections = () => {
                       <img src={account.logo} alt={account.title} height='30' />
                     </Box>
                     <div>
-                      <Typography sx={{ color: 'text.primary', fontWeight: 600 }}>{account.title}</Typography>
-                      <Typography variant='body2'>
-                        {account.isConnected ? account.username : 'Not Connected'}
-                      </Typography>
+                      <Typography sx={{ fontWeight: 600 }}>{account.title}</Typography>
+                      {account.isConnected ? (
+                        <Typography
+                          href='/'
+                          component={Link}
+                          onClick={e => e.preventDefault()}
+                          sx={{ color: 'primary.main', textDecoration: 'none' }}
+                        >
+                          {account.username}
+                        </Typography>
+                      ) : (
+                        <Typography variant='body2' sx={{ color: 'text.disabled' }}>
+                          Not Connected
+                        </Typography>
+                      )}
                     </div>
                   </Box>
                   <Button variant='outlined' sx={{ p: 1.5, minWidth: 38 }} color='secondary'>
