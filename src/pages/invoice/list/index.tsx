@@ -52,6 +52,7 @@ import OptionsMenu from 'src/@core/components/option-menu'
 import { Chip, Tab } from '@mui/material'
 import PageHeader from 'src/@core/components/page-header'
 import DatePickerWrapper from 'src/@core/styles/libs/react-datepicker'
+import CardStatisticsCharacters from 'src/views/ui/cards/statistics/CardStatisticsCharacters'
 
 interface InvoiceStatusObj {
   [key: string]: {
@@ -111,7 +112,7 @@ const defaultColumns: GridColDef[] = [
     field: 'id',
     minWidth: 80,
     headerName: '#',
-    renderCell: ({ row }: CellType) => <LinkStyled href={`/apps/invoice/preview/${row.id}`}>{`#${row.id}`}</LinkStyled>
+    renderCell: ({ row }: CellType) => <LinkStyled href={`/invoice/preview/${row.id}`}>{`#${row.id}`}</LinkStyled>
   },
   {
     flex: 0.1,
@@ -300,7 +301,7 @@ const InvoiceList = () => {
             </IconButton>
           </Tooltip>
           <Tooltip title='View'>
-            <IconButton size='small' component={Link} href={`/apps/invoice/preview/${row.id}`}>
+            <IconButton size='small' component={Link} href={`/invoice/preview/${row.id}`}>
               <Icon icon='mdi:eye-outline' fontSize={20} />
             </IconButton>
           </Tooltip>
@@ -315,7 +316,7 @@ const InvoiceList = () => {
               },
               {
                 text: 'Edit',
-                href: `/apps/invoice/edit/${row.id}`,
+                href: `/invoice/edit/${row.id}`,
                 icon: <Icon icon='mdi:pencil-outline' fontSize={20} />
               },
               {
@@ -335,8 +336,8 @@ const InvoiceList = () => {
 
   return (
     <DatePickerWrapper>
-      <Grid container spacing={6}>
-        <Grid item xs={12}>
+      <Grid container spacing={2}>
+        <Grid item xs={9}>
           <PageHeader
             title={<Typography variant='h5'>Facturas por cobrar</Typography>}
             subtitle={
@@ -344,6 +345,44 @@ const InvoiceList = () => {
                 Revisa tus facturas y selecciona las que quieres cotizar su adelanto
               </Typography>
             }
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <CardStatisticsCharacters
+            data={[
+              {
+                stats: '13.7k',
+                title: 'Ratings',
+                trendNumber: '+38%',
+                src: '/images/cards/pose_f9.png',
+                chipText: `Year of ${new Date().getFullYear()}`
+              },
+              {
+                stats: '24.5k',
+                trend: 'negative',
+                title: 'Sessions',
+                trendNumber: '-22%',
+                chipText: 'Last Week',
+                chipColor: 'secondary',
+                src: '/images/cards/pose_m18.png'
+              },
+              {
+                stats: '2,856',
+                chipColor: 'info',
+                title: 'Customers',
+                trendNumber: '+59%',
+                chipText: 'Last Quarter',
+                src: '/images/cards/pose_m1.png'
+              },
+              {
+                stats: '42.5k',
+                trendNumber: '+26%',
+                chipColor: 'warning',
+                title: 'Total Orders',
+                chipText: 'Last Month',
+                src: '/images/cards/pose_m35.png'
+              }
+            ]}
           />
         </Grid>
         <Grid item xs={12}>

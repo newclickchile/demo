@@ -26,7 +26,7 @@ export type CardStatsVerticalProps = {
 }
 
 export type CardStatsCharacterProps = {
-  src: string
+  src?: string
   title: string
   stats: string
   chipText: string

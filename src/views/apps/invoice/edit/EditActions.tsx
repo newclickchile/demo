@@ -50,7 +50,7 @@ const EditActions = ({ id, toggleSendInvoiceDrawer, toggleAddPaymentDrawer }: Pr
               component={Link}
               color='secondary'
               variant='outlined'
-              href={`/apps/invoice/preview/${id}`}
+              href={`/invoice/preview/${id}`}
             >
               Preview
             </Button>

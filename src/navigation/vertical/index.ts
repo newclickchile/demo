@@ -10,7 +10,8 @@ const navigation = (): VerticalNavItemsType => {
     },
     {
       sectionTitle: 'Facturas',
-      icon: 'mdi:invoice'
+      
+      // icon: 'mdi:invoice'
     },
     {
       title: 'Por Pagar',
@@ -18,8 +19,9 @@ const navigation = (): VerticalNavItemsType => {
       icon: 'mdi:invoice-arrow-right-outline'
     },
     {
+      disabled: true,
       path: '/invoice/list/',
-      title: 'Por cobrar',
+      title: 'Por Cobrar',
       icon: 'mdi:invoice-arrow-left-outline'
     }
   ]

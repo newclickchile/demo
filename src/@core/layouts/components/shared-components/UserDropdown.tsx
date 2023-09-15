@@ -129,22 +129,22 @@ const UserDropdown = (props: Props) => {
           </Box>
         </Box>
         <Divider sx={{ mt: '0 !important' }} />
-        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>
+        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose('/account-settings/account')}>
           <Box sx={styles}>
             <Icon icon='mdi:cog-outline' />
-            Settings
+            Configuración
           </Box>
         </MenuItem>
-        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>
+        <MenuItem sx={{ p: 0 }} onClick={() =>  handleDropdownClose('/pricing')}>
           <Box sx={styles}>
             <Icon icon='mdi:currency-usd' />
-            Pricing
+            Precios
           </Box>
         </MenuItem>
-        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>
+        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose('/faq')}>
           <Box sx={styles}>
             <Icon icon='mdi:help-circle-outline' />
-            FAQ
+            Preguntas frecuentes
           </Box>
         </MenuItem>
         <Divider />
